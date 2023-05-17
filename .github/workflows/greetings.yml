@@ -18,7 +18,7 @@ jobs:
 
     - name: Send greeting
       run: |
-            export TF_VAR_environment_type="${{ github.event.inputs.environment }}"
+            export TF_VAR_environment_type=${{ github.event.inputs.environment_type }}
             echo $TF_VAR_environment_type
     - uses: hashicorp/setup-terraform@v2
     

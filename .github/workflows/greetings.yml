@@ -17,3 +17,13 @@ jobs:
       run: |
             export TF_VAR_region="${{ github.event.inputs.environment }}"
             echo $TF_VAR_region
+    - uses: hashicorp/setup-terraform@v2
+    
+    - run: terraform init
+    
+    - id: plan
+      run: terraform plan -no-color
+      
+    - run: echo ${{ steps.plan.outputs.stdout }}
+    - run: echo ${{ steps.plan.outputs.stderr }}
+    - run: echo ${{ steps.plan.outputs.exitcode }}

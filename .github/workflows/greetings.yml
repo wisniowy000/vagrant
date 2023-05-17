@@ -18,8 +18,8 @@ jobs:
 
     - name: Send greeting
       run: |
-            export TF_VAR_region="${{ github.event.inputs.environment }}"
-            echo $TF_VAR_region
+            export TF_VAR_environment="${{ github.event.inputs.environment }}"
+            echo $TF_VAR_environment
     - uses: hashicorp/setup-terraform@v2
     
     - run: terraform init

@@ -12,6 +12,6 @@ provider "null" {
 }
 
 resource "local_file" "foo" {
-  content  = $TF_VAR_environment
+  content  = {{$TF_VAR_environment}}
   filename = "${path.module}/foo.bar"
 }

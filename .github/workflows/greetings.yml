@@ -3,19 +3,11 @@ name: Mixed inputs
 on:
   workflow_dispatch:
     inputs:
-      name:
-        type: choice
-        description: Who to greet
-        options: 
-        - monalisa
-        - cschleiden
-      message:
-        required: true
-      use-emoji:
-        type: boolean
-        description: Include  emojis
       environment:
-        type: environment
+        type: choice
+        options: 
+        - dev
+        - prod
 jobs:
   greet:
     runs-on: ubuntu-latest
@@ -23,6 +15,5 @@ jobs:
     steps:
     - name: Send greeting
       run: |
-            #echo "${{ github.event.inputs.message }} ${{ fromJSON('["", ""]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
-            export TF_VAR_region="${{ github.event.inputs.message }}"
+            export TF_VAR_region="${{ github.event.inputs.name }}"
             echo $TF_VAR_region

@@ -11,7 +11,7 @@ provider "null" {
   # Configuration options
 }
 
-variable "environment" {
-    type        = string
-    description = "This is an example input variable using env variables."
+resource "local_file" "foo" {
+  content  = "foo!"
+  filename = "${path.module}/foo.bar"
 }

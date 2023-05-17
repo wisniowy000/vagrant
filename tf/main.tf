@@ -11,11 +11,7 @@ provider "null" {
   # Configuration options
 }
 
-variable "environment" {
-  type = string
-}
-
 resource "local_file" "foo" {
-  content  = var.environment
+  content  = $TF_VAR_environment
   filename = "${path.module}/foo.bar"
 }

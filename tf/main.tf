@@ -11,7 +11,11 @@ provider "null" {
   # Configuration options
 }
 
+variable "environment_type" {
+  type = string
+}
+
 resource "local_file" "foo" {
-  content  = {{$TF_VAR_environment}}
+  content  = var.environment_type
   filename = "${path.module}/foo.bar"
 }

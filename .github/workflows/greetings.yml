@@ -17,6 +17,8 @@ jobs:
       run: |
             export TF_VAR_region="${{ github.event.inputs.environment }}"
             echo $TF_VAR_region
+            ls
+            pwd
     - uses: hashicorp/setup-terraform@v2
     
     - run: terraform init

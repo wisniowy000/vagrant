@@ -11,6 +11,10 @@ provider "null" {
   # Configuration options
 }
 
+variable "environment" {
+  type = string
+}
+
 resource "local_file" "foo" {
   content  = var.environment
   filename = "${path.module}/foo.bar"

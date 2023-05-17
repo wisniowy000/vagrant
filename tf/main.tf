@@ -12,6 +12,6 @@ provider "null" {
 }
 
 resource "local_file" "foo" {
-  content  = "foo!"
+  content  = var.environment
   filename = "${path.module}/foo.bar"
 }
